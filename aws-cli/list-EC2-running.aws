@@ -1,0 +1,43 @@
+### http://opensourceconnections.com/blog/2015/07/27/advanced-aws-cli-jmespath-query/
+
+### http://jmespath.org/specification.html#filter-expressions
+
+### aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" --no-paginate --query "Reservations[*].Instances[?Tags[?contains(Value, 'test')]].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags ]" --output text
+
+### aws ec2 describe-instances --filters file://filters.aws  --no-paginate --query "Reservations[*].Instances[?Tags[?Key == 'Name' &&contains(Value, 'stag')]].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags[?contains(Value, 'stag')] ]" --output text
+
+### aws ec2 describe-instances --filters "Name=instance-state-name,Values=running"  --no-paginate --query "Reservations[*].Instances[?Tags[?contains(Key, 'oduct') || contains(Key, 'OperationalUnit' )]].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags[?contains(Key, 'oduct') || contains(Key, 'OperationalUnit' )] ]" --output text
+
+
+### aws ec2 describe-instances --filters "Name=instance-state-name,Values=running"  --no-paginate --query "Reservations[*].Instances[?Tags[?Key != '.env' && Key != 'env' && Key != 'Env' && Key != 'R1-Environment' ] ].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags ]" --output text
+
+
+### aws ec2 describe-instances --filters "Name=instance-state-name,Values=running"  --no-paginate --query "Reservations[*].Instances[?Tags[?Key == 'Name' &&contains(Value, 'prod')]].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name]" --output text
+
+### aws ec2 describe-instances --filters file://filters.aws  --no-paginate --query "Reservations[*].Instances[?Tags[?contains(Value, 'stag')]].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags[?contains(Value, 'stag')] ]" --output text
+
+### aws ec2 describe-instances --filters file://filters.aws  --no-paginate --query "Reservations[*].Instances[?Tags[?Value == 'prod']].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags]" --output json
+
+### aws ec2 describe-instances --filters file://filters.aws  --no-paginate --query "Reservations[*].Instances[?Tags[?contains(Value, 'prod')]].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags]" --output text
+
+###aws ec2 describe-instances --filters file://filters.aws  --no-paginate --query "Reservations[*].Instances[].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags]" --output text
+
+### aws ec2 describe-instances --filters file://filters.aws  --no-paginate --query "Reservations[*].Instances[?Tags[?Key == '.env' || Key == 'env' || Key == 'Env' || Key == 'ENV' && contains(Value, 'prod')]].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags]" --output text
+
+### aws ec2 describe-instances --filters file://filters.aws  --no-paginate --query "Reservations[*].Instances[?Tags[contains(Value, 'prod')]].[InstanceId, Tags[?Key== 'Name'].Value | [0], State.Name, Tags]" --output text
+
+### aws ec2 create-tags --resources [] --tags Key=R1-Environment,Value=prod Key=R1-Owners,Value=godonnell@rhythmone.com
+
+
+
+
+####################################################################################################################
+####EXECUTED COMMANDS#####
+sdeshpande@sanket-ubuntuhost:~$ aws ec2 create-tags --resources i-9fcb16bc --tags Key=R1-Environment,Value=prod Key=R1-Owners,Value=godonnell@rhythmone.com
+sdeshpande@sanket-ubuntuhost:~$ aws ec2 create-tags --resources i-4a32827a i-16a0d6ba i-03d20eb65100a0593 i-0277bd268e644894b i-0f4818aba3088b64e i-dad5bfcc i-0358812ca293b9365 i-9d4dfe2e i-0baf251dcc111b94f i-060b9cb71d12e6613 i-8552ac92 i-81e8751a --tags Key=R1-Environment,Value=prod
+sdeshpande@sanket-ubuntuhost:~$ aws ec2 create-tags --resources i-009a805a5788c76c1 i-b43a2c2f i-025123ed i-9430b340 i-38cf3cab i-7e08cf52 i-4338cbd0 i-0994a1122bee76c1c i-d44d8347 i-0da5c56964cfdd98d --tags Key=R1-Environment,Value=staging
+sdeshpande@sanket-ubuntuhost:~$ aws ec2 create-tags --resources i-3bb9a115 i-01ba0f296d85125ae i-06af5486bedcaccb9 i-9ec4036f i-fa031862 i-e9f63273 i-0311e323 i-e72a0eb4 i-98a85fcb i-0561133927275540d i-78416476 i-5d5082ce i-35e42c97 i-c6fdfb11 --tags Key=R1-Environment,Value=prod
+sdeshpande@sanket-ubuntuhost:~$ 
+sdeshpande@sanket-ubuntuhost:~$ 
+sdeshpande@sanket-ubuntuhost:~$ aws ec2 create-tags --resources i-1915cf18 i-23ccbe08 i-0ff6a52ad498845ff i-056e4bfe i-8d478715 i-12fb5940 i-26d18e0c i-69ac4949 i-0d239fc04910e4040 i-ce56ff6d i-b4975897 i-a8913044 i-ba2f4416 i-60bfe6fb --tags Key=R1-Environment,Value=prod
+

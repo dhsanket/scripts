@@ -1,0 +1,10 @@
+[
+  {
+    "Name": "instance-state-name",
+    "Values": ["running"]
+  },
+  {
+    "Name": "tag-key",
+    "Values": ["R1-Environment", ".env", "env", "Env", "ENV", "Environment"]
+  }
+]
