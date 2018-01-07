@@ -1,6 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+alias imagemagick=/usr/bin/display-im6
 alias shortprompt="export PS1=\"\[\W\]\$\""
 alias record="bash | tee ~/Documents/SCRIPTS/commands/bash_output"
 alias files="nautilus $1 > /dev/null 2>&1"
