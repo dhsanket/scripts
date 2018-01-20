@@ -1,7 +1,25 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+
+
+### LS_COLOR is being modified by ~/.dircolors
+##https://github.com/trapd00r/LS_COLORS
+## http://linux-sxs.org/housekeeping/dircolor.html
+# LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'
+# LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+# LS_COLORS=$LS_COLORS:'di=1;44:ow=1;44' ; export LS_COLORS
+
+## https://linux.die.net/Bash-Beginners-Guide/sect_03_01.html
+## dircolors -b
+## http://securitronlinux.com/bejiitaswrath/linux-mint-ubuntu-dircolors-command/
+## dircolors –print-database
+## https://www.itworld.com/article/2833199/it-management/3-ways-to-pimp-your-bash-console.html
+## https://www.techrepublic.com/article/customizing-colors-with-the-ls-utility/
+
 alias imagemagick=/usr/bin/display-im6
+alias fhere='find . -name '
+alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
 alias shortprompt="export PS1=\"\[\W\]\$\""
 alias record="bash | tee ~/Documents/SCRIPTS/commands/bash_output"
 alias files="nautilus $1 > /dev/null 2>&1"
@@ -17,12 +35,38 @@ alias reset-blutooth='rfkill unblock bluetooth'
 #sudo service network-manager restart
 #sudo apt-get -y purge package
 
+### display 16:9 ####
+#xrandr --newmode "1872x1050_60.00"  163.00  1872 1992 2184 2496  1050 1053 1063 1089 -hsync +vsync
+#xrandr --addmode eDP-1 "1872x1050_60.00"
+#xrandr --newmode "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
+#xrandr --addmode eDP-1 "1600x900_60.00"
+#xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+#xrandr --addmode eDP-1 "1920x1080_60.00"
+
+#### display 16:10 #####
+#xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync
+#xrandr --addmode eDP-1 "1680x1050_60.00"
+
+#### display 5:4 #####
+#xrandr --newmode "1280x1024_60.00"  109.00  1280 1368 1496 1712  1024 1027 1034 1063 -hsync +vsync
+#xrandr --addmode eDP-1 "1280x1024_60.00"
+
+
+
 
 # sudo echo "10.122.1.95 rundeck-1a #sdeshpande" >> sudo /etc/hosts
 
 
  
 #LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+
+############Custom Env Variables############
+export EDITOR="$VISUAL"
+export VISUAL=vim
+export PAGER=/usr/bin/pager	#defaults to /usr/bin/pager which links to less
+export MANPAGER="$PAGER"
+######Custom Env Variables################
+
 
 # If not running interactively, don't do anything
 case $- in
@@ -78,6 +122,13 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+#if [ "$color_prompt" = yes ]; then
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#else
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#fi
+#unset color_prompt force_color_prompt
+
 if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$(__git_ps1 " (%s)")\$ '
@@ -88,6 +139,12 @@ else
 fi
 unset color_prompt force_color_prompt
 
+
+
+##############custom prompt####################
+source ~/.bash_prompt
+##############----custom prompt####################
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -96,6 +153,9 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+# set dircolors
+# eval $(dircolors -b ~/.dircolors)
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -113,9 +173,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alF --group-directories-first'
+alias la='ls -A --group-directories-first'
+alias l='ls -CF --group-directories-first'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -140,3 +200,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+
+
