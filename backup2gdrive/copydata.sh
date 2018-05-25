@@ -27,6 +27,7 @@ else
 	echo "no line number argument provided -type 1 for google-bookmarks and 2 for wunderlist-data"
 fi
 
+#grep mediterranean -r ~/.config/
 #sed '5!d' file
 #awk 'NR==5' file
 #echo "the $1 eats a $2 every time there is a $3"

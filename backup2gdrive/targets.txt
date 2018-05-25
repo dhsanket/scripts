@@ -1,1 +1,2 @@
-/home/sdeshpande/.config/google-chrome/Profile 2/Bookmarks
+/home/sanket-rhythmone/.config/google-chrome/Default/Bookmarks
+#/home/sdeshpande/.config/google-chrome/Profile 2/Bookmarks
